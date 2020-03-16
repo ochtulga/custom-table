@@ -1,5 +1,15 @@
-import mockData from './mockData.json';
+import mockPromotions from './mockPromotions.json';
+import mockProducts from './mockProducts.json';
 
-export const getData = () => {
-  return mockData;
+import { Types } from '../constants/enums/containerTypes';
+
+export const getData = type => {
+  switch (type) {
+    case Types.promotions:
+      return mockPromotions;
+    case Types.products:
+      return mockProducts;
+    default:
+      return null;
+  }
 };

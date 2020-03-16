@@ -1,31 +1,18 @@
 import React from 'react';
 
-import { getData } from './server/getData';
-import { CustomTable } from './Component/customTable/CustomTable';
-import { Button } from './Component/button/button';
+import { Products } from './containers/products/Products';
+import { Promotions } from './containers/promotions/Promotions';
 
 function App() {
-  const onClickAction = id => {
-    console.log('id from action', id);
-  };
-  
-  const preparedData = {
-    action: [
-      {
-        text: 'View',
-        onClick: onClickAction,
-        element: <Button />
-      }
-    ],
-    data: getData()
-  };
-
   return (
     <div>
       hello custom table
-      <CustomTable table={preparedData} />
+      <Products />
+      <Promotions />
     </div>
   );
+
+  
 }
 
 export default App;
