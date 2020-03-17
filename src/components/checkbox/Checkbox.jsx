@@ -9,7 +9,7 @@ export function Checkbox(props) {
         name={props.text}
         onClick={() => props.onClick(props.id)}
       />
-      <label for={props.id + props.text}> {props.text}</label>
+      <label htmlFor={props.id + props.text}> {props.text}</label>
     </>
   );
 }

@@ -7,20 +7,38 @@ import { Button } from '../../components/button/Button';
 import { Types } from '../../constants/enums/containerTypes';
 
 export function Promotions(props) {
-
   const onViewClickAction = id => {
-    console.log('id from action on Promotion', id);
+    console.log('id from view action on Promotion', id);
   };
-  
+
+  const onEditClickAction = id => {
+    console.log('id from edit action on Promotion', id);
+  };
+
+  const datas = getData(Types.products) || [];
+  if (datas.length < 1) {
+    return <div>Empty</div>;
+  }
+
+  const rows = Object.keys(datas[0]);
+  rows.push('ActionForData');
+
   const preparedData = {
-    action: [
+    actions: [
       {
         text: 'View',
         onClick: onViewClickAction,
         element: <Button />
+      },
+      {
+        text: 'Edit',
+        onClick: onEditClickAction,
+        element: <Button />
       }
     ],
-    data: getData(Types.promotions)
+    rows: rows,
+    datas: datas,
+    actionData: 'ActionForData'
   };
 
   return (
